@@ -8,6 +8,6 @@ ENV APP_DIR /code
 RUN mkdir ${APP_DIR}
 WORKDIR ${APP_DIR}
 COPY requirements.txt ${APP_DIR}
-RUN pip install -r requirements.txt
-RUN curl -SL https://github.com/sear-azazel/bot/archive/${APP_VERSION}.tar.gz | \
-  tar -xz -C ${APP_DIR}
+RUN pip install -r requirements.txt && \
+  curl -SL https://github.com/sear-azazel/bot/archive/${APP_VERSION}.tar.gz | \
+  tar -xz -C ${APP_DIR} --strip-components 1
